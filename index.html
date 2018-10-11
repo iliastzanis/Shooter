@@ -128,18 +128,28 @@ body {
 			}
 
 			//  Fire bullet
-			if (player.alive && fireButton.isDown) {
+			if (player.alive) && (fireButton.isDown || game.input.activePointer.isDown) {
 				fireBullet();
 			}
+			//  Move ship towards mouse pointer
+                        if (game.input.x < game.width - 20 && 
+				    game.input.x > 20 &&
+                                    game.input.y > 20 &&
+                                    game.input.y < game.height - 20) {
+                                      var minDist = 200;
+                                      var dist = game.input.x - player.x;
+                                      player.body.velocity.x = MAXSPEED * game.math.clamp(dist / minDist, -1, 1);
+                         }
+			//  Squish and rotate ship for illusion of "banking"
+                            bank = player.body.velocity.y / MAXSPEED;
+                            player.scale.y = 1 - Math.abs(bank) / 2;
+                            player.angle = bank * 5;
 
 			//  Keep the shipTrail lined up with the ship
 			shipTrail.y = player.y;
 			shipTrail.x = player.x - 20;
 			
-			//  Squish and rotate ship for illusion of "banking"
-    bank = player.body.velocity.y / MAXSPEED;
-    player.scale.y = 1 - Math.abs(bank) / 2;
-    player.angle = bank * 10;
+		        
 
 		}
 
