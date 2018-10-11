@@ -132,14 +132,16 @@ body {
 				fireBullet();
 			}
 			
-			//  Squish and rotate ship for illusion of "banking"
-                            bank = player.body.velocity.y / MAXSPEED;
-                            player.scale.y = 1 - Math.abs(bank) / 2;
-                            player.angle = bank * 5;
-
+			
 			//  Keep the shipTrail lined up with the ship
 			shipTrail.y = player.y;
 			shipTrail.x = player.x - 20;
+			
+			//  Squish and rotate ship for illusion of "banking"
+                            bank = player.body.velocity.y / MAXSPEED;
+                            player.scale.y = 1 - Math.abs(bank) / 2;
+                            player.angle = bank * 10;
+
 			
 		        
 
