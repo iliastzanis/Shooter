@@ -137,8 +137,8 @@ body {
 			shipTrail.x = player.x - 20;
 			
 			//  Squish and rotate ship for illusion of "banking"
-    bank = player.body.velocity.x / MAXSPEED;
-    player.scale.x = 1 - Math.abs(bank) / 2;
+    bank = player.body.velocity.y / MAXSPEED;
+    player.scale.y = 1 - Math.abs(bank) / 2;
     player.angle = bank * 10;
 
 		}
