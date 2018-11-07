@@ -65,16 +65,15 @@ body {
                         game.load.image('enemy3png', '/assets/enemies/enemy3.png');                                 game.load.image('enemy3pngBullet', '/assets/bullets/bullet1.png');
                         game.load.spritesheet('explosion', '/assets/explode.png', 128, 128);
                         game.load.bitmapFont('spacefont', '/assets/spacefont/spacefont.png', '/assets/spacefont/spacefont.xml');
-		        game.load.audio('music','assets/music.mp3');
+		        game.load.audio('music','/assets/music.mp3');
         }
 		
         
         function create() {
 		
 		
-		        music = game.add.audio('music');
-			music.play();
-			music.volume = 0.5;
+		       music = game.add.audio('music');
+			music.play('',0,1,true);
         
 			game.scale.pageAlignHorizontally = true;
 			
